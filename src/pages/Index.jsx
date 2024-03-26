@@ -27,10 +27,13 @@ const Index = () => {
         </HStack>
       </VStack>
 
-      <SimpleGrid columns={[1, 2, 3]} spacing={4} px={4} py={8}>
+      <SimpleGrid columns={3} spacing={8} px={4} py={12}>
         {photos.map((photo, index) => (
           <Link key={index} href={photo} isExternal>
-            <Image src={photo} alt={`Photography ${index + 1}`} objectFit="cover" w="100%" h={["300px", "400px"]} borderRadius="md" shadow="md" />
+            <Box position="relative" overflow="hidden" borderRadius="md" boxShadow="md" _hover={{ transform: "scale(1.05)", transition: "transform 0.3s" }}>
+              <Image src={photo} alt={`Photography ${index + 1}`} objectFit="cover" w="100%" h="100%" />
+              <Box position="absolute" top={0} left={0} w="100%" h="100%" bg="rgba(0,0,0,0.4)" opacity={0} _hover={{ opacity: 1, transition: "opacity 0.3s" }} />
+            </Box>
           </Link>
         ))}
       </SimpleGrid>
