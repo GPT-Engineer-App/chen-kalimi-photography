@@ -29,7 +29,9 @@ const Index = () => {
 
       <SimpleGrid columns={[1, 2, 3]} spacing={4} px={4} py={8}>
         {photos.map((photo, index) => (
-          <Image key={index} src={photo} alt={`Photography ${index + 1}`} objectFit="cover" w="100%" h={["300px", "400px"]} borderRadius="md" shadow="md" />
+          <Link key={index} href={photo} isExternal>
+            <Image src={photo} alt={`Photography ${index + 1}`} objectFit="cover" w="100%" h={["300px", "400px"]} borderRadius="md" shadow="md" />
+          </Link>
         ))}
       </SimpleGrid>
 
